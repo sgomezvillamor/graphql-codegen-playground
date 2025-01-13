@@ -1,0 +1,5 @@
+[tool.ariadne-codegen]
+schema_path = "../../schemas/tableau/schema.graphql"
+queries_path = "./tableau-queries.graphql"
+target_package_name = "tableau_queries"
+

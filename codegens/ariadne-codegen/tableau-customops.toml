@@ -1,0 +1,4 @@
+[tool.ariadne-codegen]
+schema_path = "../../schemas/tableau/schema.graphql"
+enable_custom_operations = true
+target_package_name = "tableau_customops"
