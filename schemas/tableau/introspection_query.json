@@ -1,0 +1,4 @@
+{
+  "query": "{ __schema { types { name kind fields { name type { name kind } args { name type { name kind } } } } } }"
+}
+

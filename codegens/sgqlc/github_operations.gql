@@ -1,0 +1,27 @@
+query ListIssues(
+    $owner: String!,
+    $name: String!,
+    $desiredOrderBy: IssueOrder={ field: CREATED_AT, direction: ASC },
+    $filterStates: [IssueState!]=[OPEN]
+) {
+    repository(owner: $owner, name: $name) {
+        __typename
+        issues(first: 100, orderBy: $desiredOrderBy, states: $filterStates) {
+            nodes {
+                n: number
+                title
+                ... on Node {
+                    id
+                }
+            }
+            pageInfo {
+                hasNextPage
+                endCursor
+            }
+        }
+        # use null_value and boolean_value to test Visitor pattern, see #170
+        rulesets(last: null, includeParents: false) {
+            totalCount
+        }
+    }
+}
