@@ -1,0 +1,2 @@
+strawberry-graphql
+strawberry-graphql[cli]
