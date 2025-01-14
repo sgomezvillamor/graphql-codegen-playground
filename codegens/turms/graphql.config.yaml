@@ -1,0 +1,26 @@
+projects:
+  default:
+    schema: ../../schemas/tableau/schema-no-introspection-types.graphql
+    documents: ./**.graphql
+    extensions:
+      turms:
+        out_dir: tableau_api
+
+        stylers:
+          - type: turms.stylers.capitalize.CapitalizeStyler
+          - type: turms.stylers.snake_case.SnakeCaseStyler
+        plugins:
+          - type: turms.plugins.enums.EnumsPlugin
+          - type: turms.plugins.inputs.InputsPlugin
+          - type: turms.plugins.fragments.FragmentsPlugin
+          - type: turms.plugins.operations.OperationsPlugin
+        processors:
+          - type: turms.processors.black.BlackProcessor
+          - type: turms.processors.isort.IsortProcessor
+        scalar_definitions:
+          uuid: str
+          UUID: str
+          Callback: str
+          Any: typing.Any
+          QString: str
+          ID: str
