@@ -21,9 +21,9 @@ class Type1(BaseModel):
 
 class Arg(BaseModel):
     name: str
-    description: Optional[str]
+    description: Optional[str] = None
     type: Type1
-    defaultValue: Optional[str]
+    defaultValue: Optional[str] = None
     isDeprecated: bool
     deprecationReason: None
 
@@ -36,29 +36,29 @@ class OfType2(BaseModel):
 
 class OfType1(BaseModel):
     kind: str
-    name: Optional[str]
-    ofType: Optional[OfType2]
+    name: Optional[str] = None
+    ofType: Optional[OfType2] = None
 
 
 class OfType(BaseModel):
     kind: str
-    name: Optional[str]
-    ofType: Optional[OfType1]
+    name: Optional[str] = None
+    ofType: Optional[OfType1] = None
 
 
 class Type2(BaseModel):
     kind: str
-    name: Optional[str]
-    ofType: Optional[OfType]
+    name: Optional[str] = None
+    ofType: Optional[OfType] = None
 
 
 class FieldModel(BaseModel):
     name: str
-    description: Optional[str]
+    description: Optional[str] = None
     args: List[Arg]
     type: Type2
     isDeprecated: bool
-    deprecationReason: Optional[str]
+    deprecationReason: Optional[str] = None
 
 
 class OfType3(BaseModel):
@@ -69,8 +69,8 @@ class OfType3(BaseModel):
 
 class Type3(BaseModel):
     kind: str
-    name: Optional[str]
-    ofType: Optional[OfType3]
+    name: Optional[str] = None
+    ofType: Optional[OfType3] = None
 
 
 class InputField(BaseModel):
@@ -90,7 +90,7 @@ class Interface(BaseModel):
 
 class EnumValue(BaseModel):
     name: str
-    description: Optional[str]
+    description: Optional[str] = None
     isDeprecated: bool
     deprecationReason: None
 
@@ -105,24 +105,24 @@ class Type(BaseModel):
     kind: str
     name: str
     description: str
-    fields: Optional[List[FieldModel]]
-    inputFields: Optional[List[InputField]]
-    interfaces: Optional[List[Interface]]
-    enumValues: Optional[List[EnumValue]]
-    possibleTypes: Optional[List[PossibleType]]
+    fields: Optional[List[FieldModel]] = None
+    inputFields: Optional[List[InputField]] = None
+    interfaces: Optional[List[Interface]] = None
+    enumValues: Optional[List[EnumValue]] = None
+    possibleTypes: Optional[List[PossibleType]] = None
 
 
 class Type4(BaseModel):
     kind: str
-    name: Optional[str]
-    ofType: Optional[OfType3]
+    name: Optional[str] = None
+    ofType: Optional[OfType3] = None
 
 
 class Arg1(BaseModel):
     name: str
     description: str
     type: Type4
-    defaultValue: Optional[str]
+    defaultValue: Optional[str] = None
     isDeprecated: bool
     deprecationReason: None
 
